@@ -31,12 +31,12 @@ module.exports = (app) => {
 
     route.post(
         [
-            check('name', 'O nome é obrigatório.').notEmpty(),
-            check('email', 'Email inválido.').notEmpty().isEmail(),
+            check('_name', 'O nome é obrigatório.').notEmpty(),
+            check('_email', 'Email inválido.').notEmpty().isEmail(),
         ],
         (req, res) => {
 
-        if(!app.utils.validator.user(app, req, res)) return false;
+        //if(!app.utils.validator.user(app, req, res)) return false;
         
         db.insert(req.body, (err, user) => {
 
@@ -72,12 +72,12 @@ module.exports = (app) => {
 
     routeID.put(
         [
-            check('name', 'O nome é obrigatório.').notEmpty(),
-            check('email', 'Email inválido.').notEmpty().isEmail(),
+            check('_name', 'O nome é obrigatório.').notEmpty(),
+            check('_email', 'Email inválido.').notEmpty().isEmail(),
         ],
         (req, res) => {
 
-        if(!app.utils.validator.user(app, req, res)) return false;
+        //if(!app.utils.validator.user(app, req, res)) return false;
 
         db.update({ _id: req.params.id }, req.body, err => {
 
